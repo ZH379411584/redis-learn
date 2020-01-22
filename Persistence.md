@@ -1,9 +1,10 @@
+## 所有资料
 [Redis Persistence](https://redis.io/topics/persistence)   
 [Redis 持久化](http://redisdoc.com/topic/persistence.html)   
 [redis-persistence-demystified ](http://oldblog.antirez.com/post/redis-persistence-demystified.html)  
 
 
-## Redis Persistence
+## [Redis Persistence](https://redis.io/topics/persistence)   
 Redis provides a different range of persistence options(提供不同范围的持久性选项):
 
 - The RDB persistence performs point-in-time snapshots of your dataset at specified intervals.(RDB持久性按指定的时间间隔执行数据集的时间点快照 )
@@ -182,3 +183,7 @@ Since many Redis users are in the startup scene and thus don't have plenty of mo
 It is important to understand that this system can easily fail if not implemented in the right way. At least make absolutely sure that after the transfer is completed you are able to verify the file size (that should match the one of the file you copied) and possibly the SHA1 digest if you are using a VPS.
 
 You also need some kind of independent alert system if the transfer of fresh backups is not working for some reason
+
+## [redis-persistence-demystified](http://oldblog.antirez.com/post/redis-persistence-demystified.html)  
+
+

@@ -674,5 +674,29 @@ For example imagine you want to know the longest streak of daily visits of your 
 This way for each user you have a small string containing the visit information for each day. With BITCOUNT it is possible to easily get the number of days a given user visited the web site, while with a few BITPOS calls, or simply fetching and analyzing the bitmap client-side, it is possible to easily compute the longest streak.
 
 Bitmaps are trivial to split into multiple keys, for example for the sake of sharding the data set and because in general it is better to avoid working with huge keys. (位图很容易分成多个键，例如，为了分片数据集，并且因为通常最好避免使用大键。)To split a bitmap across different keys instead of setting all the bits into a key, a trivial strategy is just to store M bits per key and obtain the key name with bit-number/M and the Nth bit to address inside the key with bit-number MOD M.
+```
+BitSet 数据类型的相关命令
+setbit
+getbit
+bitcount
+```
+#### HyperLogLogs
+A HyperLogLog is a probabilistic data structure used in order to count unique things (technically this is referred to estimating the cardinality of a set).HyperLogLog是一种概率数据结构，用于对唯一事物进行计数（从技术上讲，这是指估计集合的基数）。 Usually counting unique items requires using an amount of memory proportional to the number of items you want to count, because you need to remember the elements you have already seen in the past in order to avoid counting them multiple times. However there is a set of algorithms that trade memory for precision: you end with an estimated measure with a standard error, which in the case of the Redis implementation is less than 1%. (但是，有一组算法会以内存为代价来交换精度：您最终会得到带有标准误差的估计量度，在Redis实现的情况下，该误差小于1％。)The magic of this algorithm is that you no longer need to use an amount of memory proportional to the number of items counted, and instead can use a constant amount of memory!(该算法的魔力在于您不再需要使用与所计数项目数量成比例的内存量，而可以使用恒定数量的内存) 12k bytes in the worst case, or a lot less if your HyperLogLog (We'll just call them HLL from now) has seen very few elements.
 
+HLLs in Redis, while technically a different data structure, are encoded as a Redis string, so you can call GET to serialize a HLL, and SET to deserialize it back to the server.
 
+Conceptually the HLL API is like using Sets to do the same task. You would SADD every observed element into a set, and would use SCARD to check the number of elements inside the set, which are unique since SADD will not re-add an existing element.
+
+While you don't really add items into an HLL, because the data structure only contains a state that does not include actual elements, the API is the same:
+
+- Every time you see a new element, you add it to the count with PFADD.
+- Every time you want to retrieve the current approximation of the unique elements added with PFADD so far, you use the PFCOUNT.
+```
+> pfadd hll a b c d
+(integer) 1
+> pfcount hll
+(integer) 4
+```
+An example of use case for this data structure is counting unique queries performed by users in a search form every day.
+
+Redis is also able to perform the union of HLLs, please check the full documentation for more information.

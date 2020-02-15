@@ -11,6 +11,5 @@ redis 读作 ['redis]
 #### [data-types-introduction 数据类型介绍](https://github.com/ZH379411584/redis-learn/blob/master/data-types-intr.md)
 #### [redis persistence 持久化](https://github.com/ZH379411584/redis-learn/blob/master/Persistence.md)
 #### [redis cluster 集群](https://github.com/ZH379411584/redis-learn/blob/master/Cluster.md)
-
-
+#### [transactions 事务](https://github.com/ZH379411584/redis-learn/blob/master/transactions.md)
 

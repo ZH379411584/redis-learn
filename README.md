@@ -9,6 +9,7 @@ redis 读作 ['redis]
 #### [redis 官网文档翻译](http://redisdoc.com/)
 ### 某个特性 
 #### [data-types-introduction 数据类型介绍](https://github.com/ZH379411584/redis-learn/blob/master/data-types-intr.md)
+#### [pipelining 流水线](https://github.com/ZH379411584/redis-learn/blob/master/pipelining.md)
 #### [redis persistence 持久化](https://github.com/ZH379411584/redis-learn/blob/master/Persistence.md)
 #### [redis cluster 集群](https://github.com/ZH379411584/redis-learn/blob/master/Cluster.md)
 #### [transactions 事务](https://github.com/ZH379411584/redis-learn/blob/master/transactions.md)

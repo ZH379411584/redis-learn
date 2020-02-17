@@ -13,4 +13,4 @@ redis 读作 ['redis]
 #### [redis persistence 持久化](https://github.com/ZH379411584/redis-learn/blob/master/Persistence.md)
 #### [redis cluster 集群](https://github.com/ZH379411584/redis-learn/blob/master/Cluster.md)
 #### [transactions 事务](https://github.com/ZH379411584/redis-learn/blob/master/transactions.md)
-
+#### [pubsub 发布/订阅](https://github.com/ZH379411584/redis-learn/blob/master/pubsub.md)

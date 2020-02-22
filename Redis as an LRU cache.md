@@ -1,7 +1,7 @@
 ## 所有资料
 [Redis as an LRU cache](https://redis.io/topics/lru-cache)
+[Random notes on improving the Redis LRU algorithm](http://antirez.com/news/109)
 ## [Redis as an LRU cache](https://redis.io/topics/lru-cache)
-## [Random notes on improving the Redis LRU algorithm](http://antirez.com/news/109)
 ### Using Redis as an LRU cache
 When Redis is used as a cache, often it is handy to let it automatically evict old data as you add new data. This behavior is very well known in the community of developers, since it is the default behavior of the popular memcached system.
 

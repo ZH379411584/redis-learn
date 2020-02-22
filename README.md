@@ -14,8 +14,8 @@ redis 读作 ['redis]
 - [pubsub 发布/订阅](https://github.com/ZH379411584/redis-learn/blob/master/pubsub.md)
 - [memory-optimization 内存优化](https://github.com/ZH379411584/redis-learn/blob/master/memory-optimization.md)
 - [Expires key过期](https://github.com/ZH379411584/redis-learn/blob/master/Expires.md)
+- [Redis as an LRU cache](https://github.com/ZH379411584/redis-learn/blob/master/Redis%20as%20an%20LRU%20cache.md)
 - [Redis transactions 事务](https://github.com/ZH379411584/redis-learn/blob/master/transactions.md)
-
 ### Administration
 - [redis persistence 持久化](https://github.com/ZH379411584/redis-learn/blob/master/Persistence.md)
 

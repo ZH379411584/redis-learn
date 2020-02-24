@@ -18,6 +18,8 @@ redis 读作 ['redis]
 - [Redis transactions 事务](https://github.com/ZH379411584/redis-learn/blob/master/transactions.md)
 - [Mass insertion of data](https://github.com/ZH379411584/redis-learn/blob/master/Redis%20Mass%20Insertion.md)
 - [partitioning](https://github.com/ZH379411584/redis-learn/blob/master/partitioning.md)
+- [Redis keyspace notifications](https://github.com/ZH379411584/redis-learn/blob/master/Redis%20Keyspace%20Notifications.md)
+
 ### Administration
 - [redis persistence 持久化](https://github.com/ZH379411584/redis-learn/blob/master/Persistence.md)
 

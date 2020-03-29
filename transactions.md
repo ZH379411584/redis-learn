@@ -156,3 +156,12 @@ A Redis script is transactional by definition, so everything you can do with a R
 This duplication is due to the fact that scripting was introduced in Redis 2.6 while transactions already existed long before. However we are unlikely to remove the support for transactions in the short-term because it seems semantically opportune that even without resorting to Redis scripting it is still possible to avoid race conditions, especially since the implementation complexity of Redis transactions is minimal.
 
 However it is not impossible that in a non immediate future we'll see that the whole user base is just using scripts. If this happens we may deprecate and finally remove transactions.
+#### summary
+```
+MULTI
+EXEC
+DISCARD 
+WATCH WATCH is used to provide a check-and-set (CAS) behavior to Redis transactions.
+
+
+```

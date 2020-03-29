@@ -83,8 +83,8 @@ Please check the full list of Redis clients to check if there is a mature client
 #### summary 
 1. why?  
 - 数据太多，不分区的花，一台机器的内存的支撑不住。
-- 单台机器带宽将受限。
-2.what ？
+- 单台机器带宽将受限。    
+2. what ？
 Partitioning is the process of splitting your data into multiple Redis instances。
 ##### disadvantage
 - 多个key值的操作可能不支持。

@@ -27,4 +27,5 @@ redis 读作 ['redis]
 
 ### Redis Cluster
 - [redis cluster 集群](https://github.com/ZH379411584/redis-learn/blob/master/Cluster.md)
+- [High Availability: Redis Sentinel is the official high availability solution for Redis.](https://redis.io/topics/sentinel)
 

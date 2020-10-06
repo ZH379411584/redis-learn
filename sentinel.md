@@ -22,3 +22,24 @@ Failure detection is performed when multiple Sentinels agree about the fact a gi
 
 Sentinel works even if not all the Sentinel processes are working, making the system robust against failures. There is no fun in having a failover system which is itself a single point of failure, after all.
 The sum of Sentinels, Redis instances (masters and replicas) and clients connecting to Sentinel and Redis, are also a larger distributed system with specific properties. In this document concepts will be introduced gradually starting from basic information needed in order to understand the basic properties of Sentinel, to more complex information (that are optional) in order to understand how exactly Sentinel works.
+
+
+
+#### 
+
+sentinel config
+
+```
+sentinel monitor <master-group-name> <ip> <port> <quorum>
+
+```
+For the sake of clarity, let's check line by line what the configuration options mean:
+
+The first line is used to tell Redis to monitor a master called mymaster, that is at address 127.0.0.1 and port 6379, with a quorum of 2. Everything is pretty obvious but the quorum argument:
+
+- The quorum is the number of Sentinels that need to agree about the fact the master is not reachable, in order to really mark the master as failing, and eventually start a failover procedure if possible.
+- However the quorum is only used to detect the failure. In order to actually perform a failover, one of the Sentinels need to be elected leader for the failover and be authorized to proceed. This only happens with the vote of the majority of the Sentinel processes.
+So for example if you have 5 Sentinel processes, and the quorum for a given master set to the value of 2, this is what happens:
+- If two Sentinels agree at the same time about the master being unreachable, one of the two will try to start a failover.
+- If there are at least a total of three Sentinels reachable, the failover will be authorized and will actually start.
+In practical terms this means during failures Sentinel never starts a failover if the majority of Sentinel processes are unable to talk (aka no failover in the minority partition).
